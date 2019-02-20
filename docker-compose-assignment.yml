@@ -1,0 +1,16 @@
+version: '2'
+
+services: 
+  drupal:
+    image: drupal
+    ports: 
+      - "8080:80"
+    volumes: 
+      - drupal-modules:/var/www/html/modules # all these 4 comments i have got it from the official image of drupal in docker hub
+      - drupal-profiles:/var/www/html/profiles
+      - drupal-sites:/var/www/html/sites
+      - drupal-themes:/var/www/html/themes
+  postgres:
+    image: postgres
+    environment: 
+      - POSTGRES_PASSWORD=mypasswd
